@@ -1,0 +1,25 @@
+﻿@model AutoWebShop.Models.CarShopModel
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#parentCategories').click(function () {
+        $.ajax({
+            url: '@Url.Action("GetAllParentCategories")',
+            type: 'POST', /*---> = Post för att få en postback till kontrollern*/
+            datatype: 'JSON',
+            data: { id: PCID },
+            success: function (result) {
+                $.each(result, function (index, value) {
+                    $('#parent').append('<li value="'
+                        /*value från functionen each, och andra  value är från selectlisten*/
+                        + value.value + '">'
+                        /*value från functionen each, text från selectlisten*/
+                        + value.text + '</li>');
+                });
+            }
+        });
+    });
+});
+</script>

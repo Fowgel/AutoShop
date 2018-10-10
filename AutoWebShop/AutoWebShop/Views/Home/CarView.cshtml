@@ -1,0 +1,126 @@
+﻿@model IEnumerable<AutoWebShop.Models.CarShopModel>
+
+@{
+    ViewBag.Title = "CarView";
+}
+
+<h2>CarView</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ModelYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GearBox)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Mileage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManufacturingYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fuel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CarModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PostalNumber)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ModelYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GearBox)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mileage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManufacturingYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fuel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CarModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostalNumber)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditCarAdvertisement", new { id=item.AdvertisementId  }) |
+            @Html.ActionLink("Details", "CarInformation", new {  id=item.AdvertisementId  }) |
+            @Html.ActionLink("Delete", "DeleteCarAdvertisement", new {  id=item.AdvertisementId })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            @foreach (var model in Model)
+            {
+            <div class="col-sm-8">
+                
+                <a href="#"><img src=""/></a>
+                <div>
+                    <h5><a href="@Url.Action("CarInformation", new {id = model.AdvertisementId })"> @Html.DisplayFor(modelItem => model.Title)</a></h5>
+                    <div>
+                        <span>@Html.DisplayFor(modelItem => model.City)</span>
+                        <span class="float-right"> @Html.DisplayFor(modleItem => model.AdvertisementDay)</span>
+                    </div>
+                    <div>
+                        <span>@Html.DisplayFor(item => model.GearBox)</span>
+                        <span>|</span>
+                        <span>@Html.DisplayNameFor(item => item.Mileage)</span>
+                        <span>@Html.DisplayFor(modleItem => model.Mileage)</span>
+                    </div>
+                    <div> 
+                    <span>@Html.DisplayNameFor(item => item.Price)</span>
+                    <span>@Html.DisplayFor(modelItem => model.Price)</span></div>
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+</div>

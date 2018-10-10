@@ -1,0 +1,10 @@
+﻿@model AutoWebShop.Models.CarShopModel
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ChildCategoryName, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-5">
+        @Html.DropDownListFor(model => model.ChildCategoryName, Model.ChildCategorys,"--Select an item", new { @class = "form-control", @id = "childCategory" })
+        @Html.ValidationMessageFor(model => model.ChildCategoryName, "", new { @class = "text-danger" })
+    </div>
+</div>
